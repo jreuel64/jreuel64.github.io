@@ -29,9 +29,29 @@ function DisplayNews(news)
 	var newsField = document.getElementById("news");
 	var jsonNews = JSON.parse(news.responseText);
 
-	console.log(newsField);
-	console.log(jsonNews);
+	//Create Table
+	var table = document.createElement("table");
+	for(var i = 0; i < jsonNews["news"].length; ++i)
+	{
+		//create table row
+		var row = document.createElement("tr");
 
-	console.log(jsonNews["news"][0].date);
+		//create table cells
+		var data1 = document.createElement("td");
+		var data2 = document.createElement("td");
 
+		//set content of table cells
+		data1.textContent = jsonNews["news"][i].date;
+		data2.textContent = jsonNews["news"][i].event;
+
+		//push cells to current row
+		row.appendChild(data1);
+		row.appendChild(data2);
+
+		//push row onto table
+		table.appendChild(row);
+	}
+
+	//push table to news field
+	newsField.appendChild(table);
 }
