@@ -55,3 +55,4 @@ function DisplayNews(news)
 	//push table to news field
 	newsField.appendChild(table);
 }
+
