@@ -2,36 +2,36 @@
 	"news": [
 
 	{
-		"date1": "June 3, 2019",
-		"event1": "Begin Work at IBM"
+		"date": "June 3, 2019",
+		"event": "Begin Work at IBM"
 	},
 	{
-		"date2": "May 25, 2019",
-		"event2": "Graduate from St. Thomas"
+		"date": "May 25, 2019",
+		"event": "Graduate from St. Thomas"
 	},
 	{
-		"date3": "May 24, 2019",
-		"event3": "Complete Senior Capstone course"
+		"date": "May 24, 2019",
+		"event": "Complete Senior Capstone course"
 	},
 	{
-		"date4": "May 24, 2019",
-		"event4": "Complete Advanced Information Security course"
+		"date": "May 24, 2019",
+		"event": "Complete Advanced Information Security course"
 	},
 	{
-		"date5": "May 24, 2019",
-		"event5": "Complete Web Development course"
+		"date": "May 24, 2019",
+		"event": "Complete Web Development course"
 	},
 	{
-		"date6": "December 21, 2018",
-		"event6": "Completed Algorithms course"
+		"date": "December 21, 2018",
+		"event": "Completed Algorithms course"
 	},
 	{
-		"date7": "December 21, 2018",
-		"event7": "Completed Operating Systems course"
+		"date": "December 21, 2018",
+		"event": "Completed Operating Systems course"
 	},
 	{
-		"date8": "December 21, 2018",
-		"event8": "Completed Networking course"
+		"date": "December 21, 2018",
+		"event": "Completed Networking course"
 	}
 	]
 }
