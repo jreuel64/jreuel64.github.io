@@ -83,13 +83,13 @@ function PopulateLanguageSelector(languages)
 
 	var langSelector = document.getElementById("select_language");
 	var jsonLangs = JSON.parse(languages.responseText);
-	var count = 0;
+	var count = 1;
 
 	console.log(jsonLangs);
 	console.log(jsonLangs["langs"]);	
 
 	Object.keys(jsonLangs["langs"]).forEach(function(key) {
-  		console.log('Key : ' + key + ', Value : ' + jsonLangs["langs"][key])
+
   		var select = document.createElement("option");
 
   		select.value = count;
@@ -98,5 +98,22 @@ function PopulateLanguageSelector(languages)
   		langSelector.appendChild(select);
   		++count;
 	})
+
+	var selector = document.getElementById("select_language");
+
+	selector.addEventListener("change", Translate);
+
+}
+
+function Translate()
+{
+	var selector = document.getElementById("select_language");
+
+	//get language from selector
+	console.log(selector[selector.value].textContent);
+
+	//var langToSet = document.getElementById("select_langauge").content;
+
+
 }
 
