@@ -1,1 +1,37 @@
-{"news": [{"date": "June 3, 2019","event": "Begin Work at IBM"},{"date": "May 25, 2019","event": "Graduate from St. Thomas"}, "date": "May 24, 2019", "event": "Complete Senior Capstone course"}, {"date": "May 24, 2019","event": "Complete Advanced Information Security course"},{"date": "May 24, 2019","event": "Complete Web Development course"},{"date": "December 21, 2018","event": "Completed Algorithms course"},{"date": "December 21, 2018","event": "Completed Operating Systems course"},{"date": "December 21, 2018","event": "Completed Networking course"}]}
+{
+	"news": [
+
+	{
+		"date": "June 3, 2019",
+		"event": "Begin Work at IBM"
+	},
+	{
+		"date": "May 25, 2019",
+		"event": "Graduate from St. Thomas"
+	},
+	{
+		"date": "May 24, 2019",
+		"event": "Complete Senior Capstone course"
+	},
+	{
+		"date": "May 24, 2019",
+		"event": "Complete Advanced Information Security course"
+	},
+	{
+		"date": "May 24, 2019",
+		"event": "Complete Web Development course"
+	},
+	{
+		"date": "December 21, 2018",
+		"event": "Completed Algorithms course"
+	},
+	{
+		"date": "December 21, 2018",
+		"event": "Completed Operating Systems course"
+	},
+	{
+		"date": "December 21, 2018",
+		"event": "Completed Networking course"
+	}
+	]
+}
