@@ -1,7 +1,7 @@
 function Init()
 {
 	console.log("Initializing");
-	//GetNews(DisplayNews);
+	GetNews(DisplayNews);
 }
 
 function GetNews(callback)
@@ -10,7 +10,7 @@ function GetNews(callback)
 
 	var news = new XMLHttpRequest();
 
-	news.onreadystatechange = funtion(){
+	news.onreadystatechange = function(){
 		if(news.readyState == 4 && news.status == 200)
 		{
 			console.log("Recieved News");
@@ -24,11 +24,14 @@ function GetNews(callback)
 	news.send();
 }
 
-function DisplayNews(news);
+function DisplayNews(news)
 {
 	var newsField = document.getElementById("news");
-	var jsonNews = JSON.parse(news.responseText());
+	var jsonNews = JSON.parse(news.responseText);
 
 	console.log(newsField);
 	console.log(jsonNews);
+
+	console.log(jsonNews["news"][0].date);
+
 }
