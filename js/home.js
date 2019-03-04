@@ -79,7 +79,7 @@ function GetLanguages(callback)
 	languages.send();	
 }
 
-function PopulateLanguageSelector(languages)
+function PopulateLanguageSelector(languages) //add callback to start event listener once populate selector
 {
 	// console.log(languages);
 
@@ -127,15 +127,31 @@ function GetTranslate(callback)
 */
 
 	var bodyContent = document.getElementById("content");
-	console.log(bodyContent.textContent);
+	var id = "content";
+
+	// console.log(bodyContent.textContent);
 	var bodyStr = bodyContent.textContent;
 
-	var request = new XMLHttpRequest();
+	var translation = new XMLHttpRequest();
 
+	translation.onreadystatechange = function() {
+		if(translation.readystate == 4 && translation.status == 200)
+		{
+			console.log("got translation");
+			callback(id, translation)
+		}
+	}
+
+	var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
+	+ "key=trnsl.1.1.20190303T213644Z.3f24f2e041cad1bc.e96607b3c87a2db72"
+	+ "c9ea095ac7b6c93ca985085&text=" + "text" + "&lang=German";
+
+	translation.open("GET", url, true);
+	translation.send();
 }
 
 function DisplayTranslation(id, translation)
 {
-
+	console.log(translation);
 }
 
