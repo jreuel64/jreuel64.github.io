@@ -1,3 +1,5 @@
+var currLang = "English";
+
 function Init()
 {
 	console.log("Initializing");
@@ -79,14 +81,14 @@ function GetLanguages(callback)
 
 function PopulateLanguageSelector(languages)
 {
-	console.log(languages);
+	// console.log(languages);
 
 	var langSelector = document.getElementById("select_language");
 	var jsonLangs = JSON.parse(languages.responseText);
 	var count = 1;
 
-	console.log(jsonLangs);
-	console.log(jsonLangs["langs"]);	
+	// console.log(jsonLangs);
+	// console.log(jsonLangs["langs"]);	
 
 	Object.keys(jsonLangs["langs"]).forEach(function(key) {
 
@@ -101,19 +103,39 @@ function PopulateLanguageSelector(languages)
 
 	var selector = document.getElementById("select_language");
 
-	selector.addEventListener("change", Translate);
+	selector.addEventListener("change", GetTranslate(DisplayTranslation));
 
 }
 
-function Translate()
+function GetTranslate(callback)
 {
 	var selector = document.getElementById("select_language");
 
 	//get language from selector
 	console.log(selector[selector.value].textContent);
 
-	//var langToSet = document.getElementById("select_langauge").content;
+	var langToSet = selector[selector.value].textContent;
 
+	//Get Texts to translate
+	/*
+	var title = document.getElementsByTagName("Title");
+	console.log(title[0].innerHTML);
+	var titleStr = title[0].innerHTML;
+
+	var headerItems = document.getElementById("navigation");
+	console.log(headerItems);
+*/
+
+	var bodyContent = document.getElementById("content");
+	console.log(bodyContent.textContent);
+	var bodyStr = bodyContent.textContent;
+
+	var request = new XMLHttpRequest();
+
+}
+
+function DisplayTranslation(id, translation)
+{
 
 }
 
