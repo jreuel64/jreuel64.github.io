@@ -79,7 +79,7 @@ function GetLanguages(callback)
 	languages.send();	
 }
 
-function PopulateLanguageSelector(languages) //add callback to start event listener once populate selector
+function PopulateLanguageSelector(languages, callback) //add callback to start event listener once populate selector
 {
 	// console.log(languages);
 
@@ -88,7 +88,7 @@ function PopulateLanguageSelector(languages) //add callback to start event liste
 	var count = 1;
 
 	// console.log(jsonLangs);
-	// console.log(jsonLangs["langs"]);	
+	//console.log(Object.keys(jsonLangs["langs"]).length);	
 
 	Object.keys(jsonLangs["langs"]).forEach(function(key) {
 
@@ -101,18 +101,16 @@ function PopulateLanguageSelector(languages) //add callback to start event liste
   		++count;
 	})
 
-	var selector = document.getElementById("select_language");
-
-	selector.addEventListener("change", GetTranslate(DisplayTranslation));
-
 }
 
-function GetTranslate(callback)
+function GetTranslate()
 {
+	console.log("getting translation");
+	
 	var selector = document.getElementById("select_language");
 
 	//get language from selector
-	console.log(selector[selector.value].textContent);
+	//console.log(selector[selector.value].textContent);
 
 	var langToSet = selector[selector.value].textContent;
 
@@ -124,12 +122,12 @@ function GetTranslate(callback)
 
 	var headerItems = document.getElementById("navigation");
 	console.log(headerItems);
-*/
 
+*/
 	var bodyContent = document.getElementById("content");
 	var id = "content";
 
-	// console.log(bodyContent.textContent);
+	//console.log(bodyContent.textContent);
 	var bodyStr = bodyContent.textContent;
 
 	var translation = new XMLHttpRequest();
@@ -140,6 +138,11 @@ function GetTranslate(callback)
 			console.log("got translation");
 			callback(id, translation)
 		}
+		else if(translation.readystate == 4)
+		{
+
+			alert("ERROR: " + translation.status);
+		}
 	}
 
 	var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
@@ -148,10 +151,10 @@ function GetTranslate(callback)
 
 	translation.open("GET", url, true);
 	translation.send();
+
 }
 
 function DisplayTranslation(id, translation)
 {
 	console.log(translation);
 }
-
