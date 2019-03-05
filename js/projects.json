@@ -1,4 +1,4 @@
-{
+[
 	"0": {
 
 		"title": "Single-Cycle Processor Simulator",
@@ -64,4 +64,4 @@
 			"./images/memory4.jpg"
 		]
 	}
-}
+]
