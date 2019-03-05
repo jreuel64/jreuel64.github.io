@@ -40,37 +40,76 @@ function DisplayProjects(projects)
 	{
 		//create lb(i)
 			//div
+			console.log("creating lb" + i);
 			var div = document.createElement("div");
-			div.class="lb";
+			div.className="lb";
 			div.id="lb" + i;
 
 			//close button
 			var closeButton = document.createElement("a");
 			closeButton.id="closeButton";
-			closeButton.onclick="CloseLightBox(" + i + ")";
-			closeButton.textContent="&times;";
+			closeButton.innerHTML="&times;";
+			closeButton.dataset.num = i;
+			closeButton.addEventListener("click", function(){
+				CloseLightBox(this.dataset.num);
+			});
 
 			div.appendChild(closeButton);
 
 			//prev button
 			var prevButton = document.createElement("a");
 			prevButton.id="prev";
-			prevButton.class="scroll";
-			prevButton.onclick="ChangeSlides(-1," + i + ")";
-			prevButton.textContent="&lt;";
+			prevButton.className="scroll";
+			prevButton.innerHTML="&lt;";
+			prevButton.dataset.num = i;
+			prevButton.addEventListener("click", function(){
+				ChangeSlides(-1,this.dataset.num);
+			});
 
 			div.appendChild(prevButton);
 
 			//next button
 			var nextButton = document.createElement("a");
 			nextButton.id="next";
-			nextButton.class="scroll";
-			nextButton.onclick="ChangeSlides(1," + i + ")";
-			nextButton.textContent="&gt;";
+			nextButton.className="scroll";
+			nextButton.innerHTML="&gt;";
+			nextButton.dataset.num = i;
+			nextButton.addEventListener("click", function(){
+				ChangeSlides(1,this.dataset.num);
+			});
 
 			div.appendChild(nextButton);
 
-			//images
+			//add thumbnail images
+			var table = document.getElementById("projects_table");
+
+			var tr = document.createElement("tr");
+			var titleCell = document.createElement("td");
+			var thumbnailCell = document.createElement("td");
+
+			titleCell.textContent=json[i].title;
+
+			var projectId = i;
+			var thumbimg = document.createElement("img");
+			thumbimg.id = projectId;
+			thumbimg.className = "lbImg";
+			thumbimg.src = json[i].images[0];
+			thumbimg.alt = json[i].images[0];
+			//img.attr("data-projectNum",i);
+			thumbimg.addEventListener("click", function() {
+				console.log(this.getAttribute("id"));
+				OpenLightBox(this.getAttribute("id"));
+			});
+
+
+			thumbnailCell.appendChild(thumbimg);
+
+			tr.appendChild(titleCell);
+			tr.appendChild(thumbnailCell);
+
+			table.appendChild(tr);
+
+			//slide images
 			for(var j = 0; j < json[i].images.length; ++j)
 			{
 				var imgPath = json[i].images[j];
@@ -85,18 +124,22 @@ function DisplayProjects(projects)
 
 			//title
 			var title = document.createElement("h2");
-			title.class = "title";
+			title.className = "title";
 			title.textContent = json[i].title;
 
 			div.appendChild(title);
 
 			//description
 			var description = document.createElement("p");
-			description.class = "description";
+			description.className = "description";
 			description.textContent = json[i].description;
+
+			div.appendChild(description);
+
+			lbField.appendChild(div);
 	}
 
-	lbField.appendChild(div);
+	console.log(lbField);
 }
 
 function GetLanguages(callback)
@@ -213,13 +256,13 @@ function DisplayTranslation(id, translation)
 
 }
 
-
-
 var slideIndex = 0;
 
 function OpenLightBox(lbNum)
-{
+{	
+	slideIndex = 0;
 	var lb = "lb" + lbNum;
+
 	document.getElementById(lb).style.display = "block";
 
 	ShowSlides(lbNum);
@@ -277,49 +320,4 @@ function ShowSlides(lbNum)
 
 	//set current slide visible
   	slides[slideIndex].style.display = "block";
-
 }
-
-
-
-/*
-// Open the Modal
-function openLB() {
-  document.getElementById("myModal").style.display = "block";
-}
-
-// Close the Modal
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}*/
