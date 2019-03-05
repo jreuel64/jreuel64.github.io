@@ -1,5 +1,5 @@
 [
-	"0": {
+	{
 
 		"title": "Single-Cycle Processor Simulator",
 		"description": "simulate processes running on a single-cycle processor",
@@ -9,7 +9,7 @@
 		]
 	},
 
-	"1": {
+	{
 
 		"title": "Minimum Vertex Cover",
 		"description": "custom implementation of the minimum vertex cover algorithm",
@@ -21,7 +21,7 @@
 		]
 	},
 
-	"2": {
+	{
 
 		"title": "Multi-Cycle Processor Simulator",
 		"description": "simulate processes running on a multi-cycle processor",
@@ -31,7 +31,7 @@
 		]
 	},
 
-	"3": {
+	{
 
 		"title": "OSshell",
 		"description": "linux shell simulator",
@@ -43,7 +43,7 @@
 		]
 	},
 
-	"4": {
+	{
 
 		"title": "Process Scheduler",
 		"description": "simulate operating system process scheduler",
@@ -53,7 +53,7 @@
 		]
 	},
 
-	"5": {
+	{
 
 		"title": "Memory Management Simulator",
 		"description": "simulate operating system virtual memory management",
