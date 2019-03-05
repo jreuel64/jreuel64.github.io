@@ -59,10 +59,9 @@
 		"description": "simulate operating system virtual memory management",
 		"images": [
 			"./images/memory.jpg",
-			"./images/memory2.jpg"
-			"./images/memory3.jpg"
+			"./images/memory2.jpg",
+			"./images/memory3.jpg",
 			"./images/memory4.jpg"
 		]
-	},
-
+	}
 }
