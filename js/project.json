@@ -1,0 +1,68 @@
+{
+	"0": {
+
+		"title": "Single-Cycle Processor Simulator",
+		"description": "simulate processes running on a single-cycle processor",
+		"images": [
+			"./images/cpu.jpg",
+			"./images/cpu2.jpg"
+		]
+	},
+
+	"1": {
+
+		"title": "Minimum Vertex Cover",
+		"description": "custom implementation of the minimum vertex cover algorithm",
+		"images": [
+			"./images/algorithms.png",
+			"./images/algorithms2.png",
+			"./images/algorithms3.jpg",
+			"./images/algorithms4.jpg"
+		]
+	},
+
+	"2": {
+
+		"title": "Multi-Cycle Processor Simulator",
+		"description": "simulate processes running on a multi-cycle processor",
+		"images": [
+			"./images/supercomputer.jpg",
+			"./images/titan.jpg"
+		]
+	},
+
+	"3": {
+
+		"title": "OSshell",
+		"description": "linux shell simulator",
+		"images": [
+			"./images/shell.jpg",
+			"./images/shell2.jpg",
+			"./images/tux.png"
+
+		]
+	},
+
+	"4": {
+
+		"title": "Process Scheduler",
+		"description": "simulate operating system process scheduler",
+		"images": [
+			"./images/clock.jpg",
+			"./images/scheduler.jpg"
+		]
+	},
+
+	"5": {
+
+		"title": "Memory Management Simulator",
+		"description": "simulate operating system virtual memory management",
+		"images": [
+			"./images/memory.jpg",
+			"./images/memory2.jpg"
+			"./images/memory3.jpg"
+			"./images/memory4.jpg"
+		]
+	},
+
+}
