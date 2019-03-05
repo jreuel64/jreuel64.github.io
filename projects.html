@@ -40,10 +40,14 @@
 		<div id="lightboxes">
 			<div class="lb" id="lb1">
 				<a id="closeButton" onclick="CloseLightBox(1)">&times;</a>
-				<a class="prev" onclick="ChangeSlides(-1)">&#10094;</a>
-		    	<a class="next" onclick="ChangeSlides(1)">&#10095;</a>
+				<a id="prev" class="scroll" onclick="ChangeSlides(-1,1)">&lt;</a>
+		    	<a id="next" class="scroll" onclick="ChangeSlides(1,1)">&gt;</a>
+
 				<img src="./images/computer.jpg" alt="computer">
 				<img src="./images/computer2.jpg" alt="computer2">
+
+				<h2 class="title">OSSHELL</h2>
+				<p class="description">Linux shell simulator</p>
 			</div>
 		</div>
 

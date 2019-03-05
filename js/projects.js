@@ -192,9 +192,9 @@ function CloseLightBox(lbNum)
 	document.getElementById(lb).style.display = "none";
 }
 
-function ChangeSlides(lbNum)
+function ChangeSlides(n, lbNum)
 {
-	slideIndex += lbNum;
+	slideIndex += n;
 	ShowSlides(lbNum);
 }
 
@@ -205,6 +205,13 @@ function ShowSlides(lbNum)
 
 	var slides = lightbox.getElementsByTagName("img");
 
+	//remove old slideFraction
+	var frac = document.getElementsByClassName("slideFraction");
+	if(frac.length != 0)
+	{
+		frac[0].parentNode.removeChild(frac[0]);
+	}
+
 	//wrap slides around the ends
 	if(slideIndex > slides.length-1)
 	{
@@ -214,6 +221,13 @@ function ShowSlides(lbNum)
 	{
 		slideIndex = slides.length - 1;
 	}
+
+	//create new slideFraction
+	var slideFrac = document.createElement("p");
+	slideFrac.className="slideFraction";
+
+	slideFrac.textContent = (slideIndex+1) + " / " + (slides.length);
+	lightbox.appendChild(slideFrac);
 
 	//make all slides invisible
 	for( var i = 0; i < slides.length; ++i)

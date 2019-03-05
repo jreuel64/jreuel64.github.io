@@ -29,6 +29,7 @@ h1{
     color: #66fcf1;
     font-size: 6rem;
     margin-top: 10rem;
+    margin-bottom: 10rem;
 }
 
 ul {
@@ -176,8 +177,9 @@ button{
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: black;
+    background-color: rgba(0,0,0,.9);
 }
+
 .lb img{
     width: auto;
     height: 70%;
@@ -200,25 +202,45 @@ button{
     cursor: pointer;
 }
 
-.prev,
-.next {
+.scroll{
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 40%;
     width: auto;
     padding: 16px;
-    margin-top: -50px;
     color: white;
     font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
+    font-size: 5rem;
 }
 
+.scroll:hover {
+    color: #999;
+}
 
+#next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
 
+.title{
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #66fcf1;
+}
+
+.description{
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.slideFraction{
+    margin: 0;
+    font-size: 2rem;
+}
 
 
 /* The Modal (background) 

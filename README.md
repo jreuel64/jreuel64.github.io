@@ -5,4 +5,5 @@ TODO: page min width and height
 
 picture of me
 
-
+Q's:
+	 Title and description overlap bottom of image in light box?
