@@ -3,32 +3,87 @@ var currLang = "en";
 function Init()
 {
 	console.log("Initializing");
-	//GetNews(DisplayNews);
+	GetProjects(DisplayProjects);
 	GetLanguages(PopulateLanguageSelector);
 }
 
-function GetNews(callback)
+function GetProjects(callback)
 {
-	console.log("Getting News");
+	console.log("Getting projects");
 
-	var news = new XMLHttpRequest();
+	var projects = new XMLHttpRequest();
 
-	news.onreadystatechange = function(){
-		if(news.readyState == 4 && news.status == 200)
+	projects.onreadystatechange = function(){
+		if(projects.readyState == 4 && projects.status == 200)
 		{
-			console.log("Recieved News");
-			callback(news);
+			console.log("Recieved Projects");
+			callback(projects);
 		}
 	};
 
-	var url = "https://jreuel64.github.io/js/recent_news.json";
+	var url = "https://jreuel64.github.io/js/projects.json";
 
-	news.open("GET", url, true);
-	news.send();
+	projects.open("GET", url, true);
+	projects.send();
 }
 
-function DisplayNews(news)
+function DisplayProjects(projects)
 {
+	console.log(projects);
+	var lbField = document.getElementById("lightboxes");
+	var json = JSON.parse(projects.responseText);
+
+	console.log(json[0].images.length);
+
+	var i;
+	for(i = 0; i < json.length; ++i)
+	{
+		//create lb(i)
+			//div
+			var div = document.createElement("div");
+			div.class="lb";
+			div.id="lb" + i;
+
+			//close button
+			var closeButton = document.createElement("a");
+			closeButton.id="closeButton";
+			closeButton.onclick="CloseLightBox(" + i + ")";
+			closeButton.textContent="&times;";
+
+			div.appendChild(closeButton);
+
+			//prev button
+			var prevButton = document.createElement("a");
+			prevButton.id="prev";
+			prevButton.class="scroll";
+			prevButton.onclick="ChangeSlides(-1," + i + ")";
+			prevButton.textContent="&lt;";
+
+			div.appendChild(prevButton);
+
+			//next button
+			var nextButton = document.createElement("a");
+			nextButton.id="next";
+			nextButton.class="scroll";
+			nextButton.onclick="ChangeSlides(1," + i + ")";
+			nextButton.textContent="&gt;";
+
+			div.appendChild(nextButton);
+
+			//images
+			//console.log(json[i].images.length);
+			for(var j = 0; j < json[i].images.length; ++j)
+			{
+				//console.log("getting images");
+				//var img = json[i].images[j];
+
+			}
+	}
+
+
+
+
+	/*
 	var newsField = document.getElementById("news");
 	var jsonNews = JSON.parse(news.responseText);
 
@@ -57,6 +112,8 @@ function DisplayNews(news)
 
 	//push table to news field
 	newsField.appendChild(table);
+
+	*/
 }
 
 function GetLanguages(callback)
