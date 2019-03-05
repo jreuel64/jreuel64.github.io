@@ -7,3 +7,6 @@ picture of me
 
 Q's:
 	 Title and description overlap bottom of image in light box?
+
+	 Tumbnails -> just smaller version of full photo
+	 	just resize in html or get 2 versions of same photo
