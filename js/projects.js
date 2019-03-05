@@ -71,49 +71,32 @@ function DisplayProjects(projects)
 			div.appendChild(nextButton);
 
 			//images
-			//console.log(json[i].images.length);
 			for(var j = 0; j < json[i].images.length; ++j)
 			{
-				//console.log("getting images");
-				//var img = json[i].images[j];
+				var imgPath = json[i].images[j];
 
+				//create image 
+				var img = document.createElement("img");
+				img.src = imgPath;
+				img.alt = imgPath;
+
+				div.appendChild(img);
 			}
+
+			//title
+			var title = document.createElement("h2");
+			title.class = "title";
+			title.textContent = json[i].title;
+
+			div.appendChild(title);
+
+			//description
+			var description = document.createElement("p");
+			description.class = "description";
+			description.textContent = json[i].description;
 	}
 
-
-
-
-	/*
-	var newsField = document.getElementById("news");
-	var jsonNews = JSON.parse(news.responseText);
-
-	//Create Table
-	var table = document.createElement("table");
-	for(var i = 0; i < jsonNews["news"].length; ++i)
-	{
-		//create table row
-		var row = document.createElement("tr");
-
-		//create table cells
-		var data1 = document.createElement("td");
-		var data2 = document.createElement("td");
-
-		//set content of table cells
-		data1.textContent = jsonNews["news"][i].date;
-		data2.textContent = jsonNews["news"][i].event;
-
-		//push cells to current row
-		row.appendChild(data1);
-		row.appendChild(data2);
-
-		//push row onto table
-		table.appendChild(row);
-	}
-
-	//push table to news field
-	newsField.appendChild(table);
-
-	*/
+	lbField.appendChild(div);
 }
 
 function GetLanguages(callback)
