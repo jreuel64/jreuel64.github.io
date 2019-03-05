@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel="stylesheet" href="css/style.css"/>
-    <script type="text/javascript" src="./js/home.js"></script>
+    <script type="text/javascript" src="./js/projects.js"></script>
 </head>
 <body onload="Init()">
 	<div id="header">
@@ -14,12 +14,34 @@
 			<li class="active"><a class="nav_link" href="projects.html">Projects</a></li>
 			<li><a class="nav_link" href="resume.html">Resume</a></li>
 		</ul>
+		<div id="language">
+			Language: 
+			<select id="select_language" onchange="GetTranslation(DisplayTranslation)">
+
+        		<option value="0">English</option>
+
+        	</select>
+
+		</div>
 	</div>
 	<p>
+		<h1>PROJECTS</h1>
 
-CONTENT
-	</p>
+		<table id="projects_table">
+			<tr><th>TITLE</th><th>IMAGE</th></tr>
+			<tr>
 
+			</tr>
+		</table>
 
+		<div id="lightboxes">
+
+		</div>
+
+	<div id="footer">
+        <p> 
+        	Translation Powered By: <a href="http://translate.yandex.com" target=_blank>Yandex.Translate</a>
+        </p>
+    </div>  
 </body>
 </html>
