@@ -3,10 +3,29 @@ var currLang = "en";
 function Init()
 {
 	console.log("Initializing");
-	//GetNews(DisplayNews);
+	GetResume(DisplayResume);
 	GetLanguages(PopulateLanguageSelector);
 }
 
+function GetResume(callback)
+{
+	var resume = new XMLHttpRequest();
+
+	resume.onreadystatechange = function(){
+		if(resume.readyState == 4 && resume.status == 200)
+		{
+			console.log("Recieved resume");
+			callback(resume);
+		}
+	};
+
+	var url = "https://jreuel64.github.io/js/resume.json";
+
+	resume.open("GET", url, true);
+	resume.send();
+}
+
+/*
 function GetNews(callback)
 {
 	console.log("Getting News");
@@ -26,7 +45,18 @@ function GetNews(callback)
 	news.open("GET", url, true);
 	news.send();
 }
+*/
 
+function DisplayResume(resume)
+{
+	console.log(resume);
+
+	var jsonResume = JSON.parse(resume.responseText);
+
+	console.log(jsonResume);
+
+}
+/*
 function DisplayNews(news)
 {
 	var newsField = document.getElementById("news");
@@ -58,6 +88,7 @@ function DisplayNews(news)
 	//push table to news field
 	newsField.appendChild(table);
 }
+*/
 
 function GetLanguages(callback)
 {
