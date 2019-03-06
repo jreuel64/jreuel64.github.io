@@ -184,6 +184,7 @@ button{
     width: auto;
     height: 70%;
     vertical-align: top;
+    max-width: 90%
 }
 
 #closeButton{

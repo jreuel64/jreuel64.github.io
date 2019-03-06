@@ -95,6 +95,7 @@ function DisplayProjects(projects)
 			thumbimg.className = "lbImg";
 			thumbimg.src = json[i].images[0];
 			thumbimg.alt = json[i].images[0];
+			thumbimg.title = json[i].images[0];
 			//img.attr("data-projectNum",i);
 			thumbimg.addEventListener("click", function() {
 				console.log(this.getAttribute("id"));
@@ -118,6 +119,7 @@ function DisplayProjects(projects)
 				var img = document.createElement("img");
 				img.src = imgPath;
 				img.alt = imgPath;
+				img.title = imgPath;
 
 				div.appendChild(img);
 			}
