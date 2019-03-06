@@ -3,13 +3,13 @@
 		"section": "EDUCATION",
 		"content":[
 			{
-				"school": "Univeristy of St. Thomas",
+				"item": "Univeristy of St. Thomas",
 				"date": "Fall 2016 - Present",
 				"description": "B.S. candidate in computer science (Graduation date: 5/2019)",
 				"link": "https://www.stthomas.edu/"
 			},
 			{
-				"school": "Rochester Community and Technical College",
+				"item": "Rochester Community and Technical College",
 				"date": "Fall 2015 - Spring 2016",
 				"description": "Completed Post Secondary Education Option (PSEO)",
 				"link": "https://www.rctc.edu/"
@@ -19,28 +19,36 @@
 
 	{
 		"section": "SKILLS",
-		"skills": "Java, C/C++, C#, HTML/CSS, JavaScript, Github",
-		"exposureTo": "PHP, SQL, Python, Perl",
-		"areasOfStudy": "Object-Oriented Programming, Data Structures, Computer Architecture, Advanced Information Security, Operating Systems, Algorithms, Networking, Web Development."
+		"content":[
+			{
+				"item": "Java, C/C++, C#, HTML/CSS, JavaScript, Github",
+				"date": "",
+				"description": "Areas Of Study:  Object-Oriented Programming, Data Structures, Computer Architecture, Advanced Information Security, Operating Systems, Algorithms, Networking, Web Development.",
+				"link": ""
+			}
+		]
 	},
 
 	{
 		"section": "WORK EXPERIENCE",
 		"content": [
 			{
-				"company": "Piepho Moving and Storage, Rochester, MN",
+				"item": "Piepho Moving and Storage, Rochester, MN",
 				"date": "June 2018 - August 2018",
-				"Description": "Summer Laborer: Assist with packing, loading and unloading of moving trucks."
+				"description": "Summer Laborer: Assist with packing, loading and unloading of moving trucks.",
+				"link": "https://www.piepho.com"
 			},
 			{
 				"company": "Thatcher Pools, Rochester, MN",
 				"date": "June 2017 - August 2017",
-				"Description": "Summer Laborer: Assist with pool and hut tub installation and repair."
+				"description": "Summer Laborer: Assist with pool and hut tub installation and repair.",
+				"link": "https://thatcherpools.com"
 			},
 			{
 				"company": "Helget Construction, Byron, MN",
 				"date": "June 2016 - August 2016",
-				"Description": "Roofer: Assist with shingle removal and installation."
+				"description": "Roofer: Assist with shingle removal and installation.",
+				"link": ""
 			}
 		]
 	},
@@ -48,16 +56,22 @@
 		"section": "HONORS & AWARDS",
 		"content": [
 			{
-				"award": "Dean's List all five semesters comleted at St. Thomas.",
-				"date": "Fall 2016 - Present"
+				"item": "Dean's List all five semesters comleted at St. Thomas.",
+				"date": "Fall 2016 - Present",
+				"description": "",
+				"link": ""
 			},
 			{
-				"award": "Mayo Foundation Scholarship",
-				"date": "Fall 2016 - Present"
+				"item": "Mayo Foundation Scholarship",
+				"date": "Fall 2016 - Present",
+				"description": "",
+				"link": ""
 			},
 			{
 				"award": "University of St. Thomas Academic Scholarship",
-				"date": "Fall 2016 - Present"
+				"date": "Fall 2016 - Present",
+				"description": "",
+				"link": ""
 			}
 		]
 	},
@@ -65,12 +79,16 @@
 		"section": "EXTRACURRICULAR & INTERESTS",
 		"content": [
 			{
-				"activity": "University of St. Thomas Football Team",
-				"date": "Fall 2016 - spring 2017"
+				"item": "University of St. Thomas Football Team",
+				"date": "Fall 2016 - spring 2017",
+				"description": "",
+				"link": ""
 			},
 			{
-				"activity": "Physical Fitness, Trap Shooting, Chess",
-				"date": ""
+				"item": "Physical Fitness, Trap Shooting, Chess",
+				"date": "",
+				"description": "",
+				"link": ""
 			}
 		]
 	}
