@@ -39,13 +39,13 @@
 				"link": "https://www.piepho.com"
 			},
 			{
-				"company": "Thatcher Pools, Rochester, MN",
+				"item": "Thatcher Pools, Rochester, MN",
 				"date": "June 2017 - August 2017",
 				"description": "Summer Laborer: Assist with pool and hut tub installation and repair.",
 				"link": "https://thatcherpools.com"
 			},
 			{
-				"company": "Helget Construction, Byron, MN",
+				"item": "Helget Construction, Byron, MN",
 				"date": "June 2016 - August 2016",
 				"description": "Roofer: Assist with shingle removal and installation.",
 				"link": ""
@@ -68,7 +68,7 @@
 				"link": ""
 			},
 			{
-				"award": "University of St. Thomas Academic Scholarship",
+				"item": "University of St. Thomas Academic Scholarship",
 				"date": "Fall 2016 - Present",
 				"description": "",
 				"link": ""
