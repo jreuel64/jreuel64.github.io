@@ -33,7 +33,7 @@ h1{
 h2{
     color: #66fcf1;
     font-size: 3rem;
-    margin-left: 40rem;
+    margin-left: 25rem;
     margin-right: 15rem;
     margin-top: 5rem;
 }
@@ -103,8 +103,8 @@ button{
     width: 12rem;
 }
 .resumeP p{
-    margin-left: 50rem;
-    margin-right: 50rem;
+    margin-left: 30rem;
+    margin-right: 15rem;
     text-align: left;
 }
 
@@ -161,9 +161,13 @@ button{
     width: 100px;
     height: 80px;
 }
-
+#resume_content a{
+    text-decoration: none;
+    color: #66fcf1;
+}
 
 #footer {
+    margin-top: 5rem;
     background-color: black;
     padding: 1.5rem;
     text-align: center;

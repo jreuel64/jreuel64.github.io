@@ -53,11 +53,63 @@ function DisplayResume(resume)
 
 	var jsonResume = JSON.parse(resume.responseText);
 
-	console.log(jsonResume);
+	console.log(jsonResume[0].section);
 
 	//populate resume
 	for(var i = 0; i < jsonResume.length; ++i)
 	{
+		var resumeField = document.getElementById("resume_content");
+		//console.log(resumeField);
+	//create section
+		//create section title
+		var header = document.createElement("h2");
+		header.textContent = jsonResume[i].section;
+
+		resumeField.appendChild(header);
+
+		//create content div
+		var div = document.createElement("div");
+		div.className="resumeP";
+
+		//add items to paragraph
+		for(var j = 0; j < jsonResume[i].content.length; ++j)
+		{
+			//console.log(jsonResume[i].content[j].item + j)
+			var item = jsonResume[i].content[j].item;
+			var date = jsonResume[i].content[j].date;
+			var description = jsonResume[i].content[j].description;
+			var linkSrc = jsonResume[i].content[j].link;
+
+			//add item
+			var itemP = document.createElement("p");
+			itemP.innerHTML = item + "</br>";
+
+			var descriptionP = document.createElement("p");
+			descriptionP.style.marginLeft="35rem";
+
+			//add description 
+			if(description != ""){
+				descriptionP.innerHTML += description + "</br>";
+			}
+			//add date
+			if(date != ""){
+				descriptionP.innerHTML += "Date:  " + date + "</br>";
+			}
+			//add link
+			if(linkSrc != ""){
+				var link = document.createElement("a");
+				link.className="resumeLink";
+				link.textContent = linkSrc;
+				link.href=linkSrc;
+
+				descriptionP.appendChild(link);
+			}
+
+			div.appendChild(itemP)
+			div.appendChild(descriptionP);
+		}
+
+		resumeField.appendChild(div);
 		
 	}
 }
