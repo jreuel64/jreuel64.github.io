@@ -4,6 +4,7 @@
 		"title": "Single-Cycle Processor Simulator",
 		"description": "simulate processes running on a single-cycle processor",
 		"images": [
+			"./images/cpu-thumb.jpg",
 			"./images/cpu.jpg",
 			"./images/cpu2.jpg"
 		]
@@ -14,6 +15,7 @@
 		"title": "Minimum Vertex Cover",
 		"description": "custom implementation of the minimum vertex cover algorithm",
 		"images": [
+			"./images/algorithms-thumb.png",
 			"./images/algorithms.png",
 			"./images/algorithms2.png",
 			"./images/algorithms3.jpg",
@@ -26,6 +28,7 @@
 		"title": "Multi-Cycle Processor Simulator",
 		"description": "simulate processes running on a multi-cycle processor",
 		"images": [
+			"./images/supercomputer-thumb.jpg",
 			"./images/supercomputer.jpg",
 			"./images/titan.jpg"
 		]
@@ -36,6 +39,7 @@
 		"title": "OSshell",
 		"description": "linux shell simulator",
 		"images": [
+			"./images/shell-thumb.jpg",
 			"./images/shell.jpg",
 			"./images/shell2.jpg",
 			"./images/tux.png"
@@ -48,6 +52,7 @@
 		"title": "Process Scheduler",
 		"description": "simulate operating system process scheduler",
 		"images": [
+			"./images/clock-thumb.jpg",
 			"./images/clock.jpg",
 			"./images/scheduler.jpg"
 		]
@@ -58,6 +63,7 @@
 		"title": "Memory Management Simulator",
 		"description": "simulate operating system virtual memory management",
 		"images": [
+			"./images/memory-thumb.jpg",
 			"./images/memory.jpg",
 			"./images/memory2.jpg",
 			"./images/memory3.jpg",
