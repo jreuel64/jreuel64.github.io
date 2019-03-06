@@ -110,7 +110,7 @@ function DisplayProjects(projects)
 			table.appendChild(tr);
 
 			//slide images
-			for(var j = 0; j < json[i].images.length; ++j)
+			for(var j = 1; j < json[i].images.length; ++j)
 			{
 				var imgPath = json[i].images[j];
 
