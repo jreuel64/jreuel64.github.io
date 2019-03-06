@@ -55,6 +55,11 @@ function DisplayResume(resume)
 
 	console.log(jsonResume);
 
+	//populate resume
+	for(var i = 0; i < jsonResume.length; ++i)
+	{
+		
+	}
 }
 /*
 function DisplayNews(news)
