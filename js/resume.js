@@ -3,10 +3,29 @@ var currLang = "en";
 function Init()
 {
 	console.log("Initializing");
-	//GetNews(DisplayNews);
+	GetResume(DisplayResume);
 	GetLanguages(PopulateLanguageSelector);
 }
 
+function GetResume(callback)
+{
+	var resume = new XMLHttpRequest();
+
+	resume.onreadystatechange = function(){
+		if(resume.readyState == 4 && resume.status == 200)
+		{
+			console.log("Recieved resume");
+			callback(resume);
+		}
+	};
+
+	var url = "https://jreuel64.github.io/js/resume.json";
+
+	resume.open("GET", url, true);
+	resume.send();
+}
+
+/*
 function GetNews(callback)
 {
 	console.log("Getting News");
@@ -26,7 +45,75 @@ function GetNews(callback)
 	news.open("GET", url, true);
 	news.send();
 }
+*/
 
+function DisplayResume(resume)
+{
+	console.log(resume);
+
+	var jsonResume = JSON.parse(resume.responseText);
+
+	console.log(jsonResume[0].section);
+
+	//populate resume
+	for(var i = 0; i < jsonResume.length; ++i)
+	{
+		var resumeField = document.getElementById("resume_content");
+		//console.log(resumeField);
+	//create section
+		//create section title
+		var header = document.createElement("h2");
+		header.textContent = jsonResume[i].section;
+
+		resumeField.appendChild(header);
+
+		//create content div
+		var div = document.createElement("div");
+		div.className="resumeP";
+
+		//add items to paragraph
+		for(var j = 0; j < jsonResume[i].content.length; ++j)
+		{
+			//console.log(jsonResume[i].content[j].item + j)
+			var item = jsonResume[i].content[j].item;
+			var date = jsonResume[i].content[j].date;
+			var description = jsonResume[i].content[j].description;
+			var linkSrc = jsonResume[i].content[j].link;
+
+			//add item
+			var itemP = document.createElement("p");
+			itemP.innerHTML = item + "</br>";
+
+			var descriptionP = document.createElement("p");
+			descriptionP.style.marginLeft="35rem";
+
+			//add description 
+			if(description != ""){
+				descriptionP.innerHTML += description + "</br>";
+			}
+			//add date
+			if(date != ""){
+				descriptionP.innerHTML += "Date:  " + date + "</br>";
+			}
+			//add link
+			if(linkSrc != ""){
+				var link = document.createElement("a");
+				link.className="resumeLink";
+				link.textContent = linkSrc;
+				link.href=linkSrc;
+
+				descriptionP.appendChild(link);
+			}
+
+			div.appendChild(itemP)
+			div.appendChild(descriptionP);
+		}
+
+		resumeField.appendChild(div);
+		
+	}
+}
+/*
 function DisplayNews(news)
 {
 	var newsField = document.getElementById("news");
@@ -58,6 +145,7 @@ function DisplayNews(news)
 	//push table to news field
 	newsField.appendChild(table);
 }
+*/
 
 function GetLanguages(callback)
 {
