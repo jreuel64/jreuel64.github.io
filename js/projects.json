@@ -26,8 +26,8 @@
 		"title": "Multi-Cycle Processor Simulator",
 		"description": "simulate processes running on a multi-cycle processor",
 		"images": [
-			"./images/supercomputer.jpg",
-			"./images/titan.jpg"
+			"./images/titan.jpg",
+			"./images/supercomputer.jpg"
 		]
 	},
 
