@@ -1,0 +1,78 @@
+[
+	{
+		"section": "eductation",
+		"content":[
+			{
+				"school": "Univeristy of St. Thomas",
+				"date": "Fall 2016 - Present",
+				"description": "B.S. candidate in computer science (Graduation date: 5/2019)",
+				"link": "https://www.stthomas.edu/"
+			},
+			{
+				"school": "Rochester Community and Technical College",
+				"date": "Fall 2015 - Spring 2016",
+				"description": "Completed Post Secondary Education Option (PSEO)",
+				"link": "https://www.rctc.edu/"
+			}
+		]
+	},
+
+	{
+		"section": "skills",
+		"skills": "Java, C/C++, C#, HTML/CSS, JavaScript, Github",
+		"exposureTo": "PHP, SQL, Python, Perl",
+		"areasOfStudy": "Object-Oriented Programming, Data Structures, Computer Architecture, Advanced Information Security, Operating Systems, Algorithms, Networking, Web Development."
+	},
+
+	{
+		"section": "work",
+		"content": [
+			{
+				"company": "Piepho Moving and Storage, Rochester, MN",
+				"date": "June 2018 - August 2018",
+				"Description": "Summer Laborer: Assist with packing, loading and unloading of moving trucks."
+			},
+			{
+				"company": "Thatcher Pools, Rochester, MN",
+				"date": "June 2017 - August 2017",
+				"Description": "Summer Laborer: Assist with pool and hut tub installation and repair."
+			},
+			{
+				"company": "Helget Construction, Byron, MN",
+				"date": "June 2016 - August 2016",
+				"Description": "Roofer: Assist with shingle removal and installation."
+			}
+		]
+	},
+	{
+		"section": "honors",
+		"content": [
+			{
+				"award": "Dean's List all five semesters comleted at St. Thomas.",
+				"date": "Fall 2016 - Present"
+			},
+			{
+				"award": "Mayo Foundation Scholarship",
+				"date": "Fall 2016 - Present"
+			},
+			{
+				"award": "University of St. Thomas Academic Scholarship",
+				"date": "Fall 2016 - Present"
+			}
+		]
+	}
+	{
+		"section": "extracurricular",
+		"content": [
+			{
+				"activity": "University of St. Thomas Football Team",
+				"date": "Fall 2016 - spring 2017"
+			},
+			{
+				"activity": "Physical Fitness, Trap Shooting, Chess",
+				"date": ""
+			},
+		]
+	}
+
+]
