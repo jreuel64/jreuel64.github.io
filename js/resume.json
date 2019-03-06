@@ -1,6 +1,6 @@
 [
 	{
-		"section": "eductation",
+		"section": "EDUCATION",
 		"content":[
 			{
 				"school": "Univeristy of St. Thomas",
@@ -18,14 +18,14 @@
 	},
 
 	{
-		"section": "skills",
+		"section": "SKILLS",
 		"skills": "Java, C/C++, C#, HTML/CSS, JavaScript, Github",
 		"exposureTo": "PHP, SQL, Python, Perl",
 		"areasOfStudy": "Object-Oriented Programming, Data Structures, Computer Architecture, Advanced Information Security, Operating Systems, Algorithms, Networking, Web Development."
 	},
 
 	{
-		"section": "work",
+		"section": "WORK EXPERIENCE",
 		"content": [
 			{
 				"company": "Piepho Moving and Storage, Rochester, MN",
@@ -45,7 +45,7 @@
 		]
 	},
 	{
-		"section": "honors",
+		"section": "HONORS & AWARDS",
 		"content": [
 			{
 				"award": "Dean's List all five semesters comleted at St. Thomas.",
@@ -62,7 +62,7 @@
 		]
 	},
 	{
-		"section": "extracurricular",
+		"section": "EXTRACURRICULAR & INTERESTS",
 		"content": [
 			{
 				"activity": "University of St. Thomas Football Team",
