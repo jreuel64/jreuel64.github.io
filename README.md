@@ -12,3 +12,5 @@ Q's:
 	 	just resize in html or get 2 versions of same photo
 	 	
 	 translate languages in language selector?
+
+	 Work on mobile? or just desktop?
