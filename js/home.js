@@ -125,16 +125,18 @@ function GetTranslation(callback)
 	console.log(headerItems);
 
 */
-	var content = document.getElementsByTagName("*");
-	var id = "*";
+	var content = document.getElementById("about");
+	var id = "about";
+
+	//console.log(content.className);
 
 	//console.log(bodyContent.textContent);
-	var text = content[1].innerHTML;
-	text = "hello";
+	//var text = content[1].innerHTML;
+	//text = "hello";
 
 	var translation = new XMLHttpRequest();
 
-	console.log(text);
+	//console.log();
 	/*for content.length 
 		make request to translate and store its id
 		callback display with id and translation
@@ -156,11 +158,10 @@ function GetTranslation(callback)
 
 	var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
 	+ "key=trnsl.1.1.20190304T233940Z.71bf15040bf5e0cd.b8ae71a3cc84ef031bb4ff5ee152f77a7ef8f212" 
-	+ "&text=" + text + "&lang=" + currLang + "-" + langToSet + "&format=plain";
+	+ "&text=" + content.textContent + "&lang=" + currLang + "-" + langToSet + "&format=plain";
 
 	translation.open("GET", url, true);
 	translation.send();
-
 }
 
 function DisplayTranslation(id, translation)
@@ -170,5 +171,9 @@ function DisplayTranslation(id, translation)
 	var json = JSON.parse(translation.responseText);
 
 	console.log(json);
+
+	var field = document.getElementById(id);
+	console.log(json.text);
+	field.textContent = json.text;
 
 }

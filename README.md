@@ -11,4 +11,4 @@ Q's:
 	 Tumbnails -> just smaller version of full photo
 	 	just resize in html or get 2 versions of same photo
 	 	
-	 Some Images not loading in safari
+	 translate languages in language selector?
