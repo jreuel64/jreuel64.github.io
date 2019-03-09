@@ -14,3 +14,7 @@ Q's:
 	 translate languages in language selector?
 
 	 Work on mobile? or just desktop?
+
+	 bad request -> resume page on translate how to handle?
+
+	 clean code -> comments and console.logs

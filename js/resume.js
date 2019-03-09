@@ -27,11 +27,11 @@ function GetResume(callback)
 
 function DisplayResume(resume)
 {
-	console.log(resume);
+	//console.log(resume);
 
 	var jsonResume = JSON.parse(resume.responseText);
 
-	console.log(jsonResume[0].section);
+	//console.log(jsonResume[0].section);
 
 	//populate resume
 	for(var i = 0; i < jsonResume.length; ++i)
@@ -188,6 +188,11 @@ function GetTranslation(callback)
 function RequestTranslation(id,langToSet, url, callback)
 {
 	var translation = new XMLHttpRequest();
+
+	translation.onerror = function(){
+		console.log("ERROR");
+	}
+
 
 	translation.onreadystatechange = function(){
 		if(translation.readyState == 4 && translation.status == 200)
