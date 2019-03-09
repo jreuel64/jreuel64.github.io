@@ -9,21 +9,23 @@
 </head>
 <body onload="Init()">
 	<div id="header">
-		<ul id="navigation">
-			<li class="active"><a class="nav_link" href="index.html">
-				<span id="nav_home" class="translatable">Home </span></a></li>
-			<li><a class="nav_link" href="projects.html">
-				<span id="nav_projects" class="translatable">Projects</span></a></li>
-			<li><a class="nav_link" href="resume.html">
-				<span id="nav_resume" class="translatable">Resume</span></a></li>
-		</ul>
-		<div id="language">
-			<span id="nav_language" class="translatable"> Language: </span>
-			<select id="select_language" onchange="GetTranslation(DisplayTranslation)">
+		<div id="header_content">
+			<ul id="navigation">
+				<li class="active"><a class="nav_link" href="index.html">
+					<span id="nav_home" class="translatable">Home </span></a></li>
+				<li><a class="nav_link" href="projects.html">
+					<span id="nav_projects" class="translatable">Projects</span></a></li>
+				<li><a class="nav_link" href="resume.html">
+					<span id="nav_resume" class="translatable">Resume</span></a></li>
+			</ul>
+			<div id="language">
+				<span id="nav_language" class="translatable"> Language: </span>
+				<select id="select_language" onchange="GetTranslation(DisplayTranslation)">
 
 
-        	</select>
+	        	</select>
 
+			</div>
 		</div>
 	</div>
 	<div id="content">

@@ -87,6 +87,8 @@ function DisplayProjects(projects)
 			var titleCell = document.createElement("td");
 			var thumbnailCell = document.createElement("td");
 
+			titleCell.id = "titleCell" + i;
+			titleCell.className = "translatable";
 			titleCell.textContent=json[i].title;
 
 			var projectId = i;
@@ -96,7 +98,7 @@ function DisplayProjects(projects)
 			thumbimg.src = json[i].images[0];
 			thumbimg.alt = json[i].images[0];
 			thumbimg.title = json[i].images[0];
-			//img.attr("data-projectNum",i);
+
 			thumbimg.addEventListener("click", function() {
 				console.log(this.getAttribute("id"));
 				OpenLightBox(this.getAttribute("id"));
@@ -127,15 +129,25 @@ function DisplayProjects(projects)
 			//title
 			var title = document.createElement("h2");
 			title.className = "title";
-			title.textContent = json[i].title;
+			var titleSpan = document.createElement("span");
+			titleSpan.id = "title"+i;
+			titleSpan.className = "translatable";
+			titleSpan.textContent = json[i].title;
+
+
+			title.appendChild(titleSpan);
 
 			div.appendChild(title);
 
 			//description
 			var description = document.createElement("p");
 			description.className = "description";
-			description.textContent = json[i].description;
+			var descrSpan = document.createElement("span");
+			descrSpan.id = "description" + i;
+			descrSpan.className = "translatable";
+			descrSpan.textContent = json[i].description;
 
+			description.appendChild(descrSpan);
 			div.appendChild(description);
 
 			lbField.appendChild(div);
@@ -143,7 +155,6 @@ function DisplayProjects(projects)
 
 	console.log(lbField);
 }
-
 function GetLanguages(callback)
 {
 	console.log("Getting Languages");
@@ -172,9 +183,15 @@ function PopulateLanguageSelector(languages, callback) //add callback to start e
 	var jsonLangs = JSON.parse(languages.responseText);
 	var count = 1;
 
-	// console.log(jsonLangs);
-	// console.log(Object.keys(jsonLangs["langs"]).length);	
+	//add English at the top
+	var enSelect = document.createElement("option");
+	enSelect.value = 0;
+	enSelect.langKey="en";
+	enSelect.textContent = "English";
 
+	langSelector.appendChild(enSelect);
+
+	//populate rest of languages
 	Object.keys(jsonLangs["langs"]).forEach(function(key) {
 
   		var select = document.createElement("option");
@@ -186,7 +203,6 @@ function PopulateLanguageSelector(languages, callback) //add callback to start e
   		langSelector.appendChild(select);
   		++count;
 	})
-
 }
 
 function GetTranslation(callback)
@@ -197,38 +213,34 @@ function GetTranslation(callback)
 	//console.log(selector[selector.value].textContent);
 
 	var langToSet = selector[selector.value].langKey;
+	console.log("Translating " + currLang + " - " + langToSet);	
 
-	console.log("Translating . . . ");
 
-	//Get Texts to translate
-	/*
-	var title = document.getElementsByTagName("Title");
-	console.log(title[0].innerHTML);
-	var titleStr = title[0].innerHTML;
+	var translatable = document.getElementsByClassName("translatable");
 
-	var headerItems = document.getElementById("navigation");
-	console.log(headerItems);
+	//console.log(translatable);
 
-*/
-	var content = document.getElementsByTagName("*");
-	var id = "*";
+	for(var i = 0; i < translatable.length; ++i)
+	{
+		var toTranslate = translatable[i].textContent;
+		var id = translatable[i].id;
 
-	//console.log(bodyContent.textContent);
-	var text = content[1].innerHTML;
-	text = "hello";
+		var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
+	+ "key=trnsl.1.1.20190304T233940Z.71bf15040bf5e0cd.b8ae71a3cc84ef031bb4ff5ee152f77a7ef8f212" 
+	+ "&text=" + toTranslate + "&lang=" + currLang + "-" + langToSet + "&format=plain";
 
+		RequestTranslation(id, langToSet, url, DisplayTranslation);
+	}
+}
+
+function RequestTranslation(id,langToSet, url, callback)
+{
 	var translation = new XMLHttpRequest();
-
-	console.log(text);
-	/*for content.length 
-		make request to translate and store its id
-		callback display with id and translation
-*/
 
 	translation.onreadystatechange = function(){
 		if(translation.readyState == 4 && translation.status == 200)
 		{
-			console.log("got translation");
+			//console.log("got translation");
 			callback(id, translation)
 			currLang = langToSet;
 		}
@@ -239,24 +251,21 @@ function GetTranslation(callback)
 		}
 	}
 
-	var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
-	+ "key=trnsl.1.1.20190304T233940Z.71bf15040bf5e0cd.b8ae71a3cc84ef031bb4ff5ee152f77a7ef8f212" 
-	+ "&text=" + text + "&lang=" + currLang + "-" + langToSet + "&format=plain";
-
 	translation.open("GET", url, true);
 	translation.send();
+
 
 }
 
 function DisplayTranslation(id, translation)
 {
-	console.log(translation);
-
 	var json = JSON.parse(translation.responseText);
 
-	console.log(json);
 
+	var field = document.getElementById(id);
+	field.textContent = json.text;
 }
+
 
 var slideIndex = 0;
 
