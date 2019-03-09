@@ -1,6 +1,6 @@
 <html>
 <head>
-	<Title>Home - James R. Long</Title>
+	<Title id="title" class="translatable">Resume - James R. Long</Title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -9,23 +9,26 @@
 </head>
 <body onload="Init()">
 	<div id="header">
-		<ul id="navigation">
-			<li><a class="nav_link" href="index.html">Home</a></li>
-			<li><a class="nav_link" href="projects.html">Projects</a></li>
-			<li class="active"><a class="nav_link" href="resume.html">Resume</a></li>
-		</ul>
-		<div id="language">
-			Language: 
-			<select id="select_language" onchange="GetTranslation(DisplayTranslation)">
+		<div id="header_content">
+			<ul id="navigation">
+				<li><a class="nav_link" href="index.html">
+					<span id="nav_home" class="translatable">Home</span></a></li>
+				<li><a class="nav_link" href="projects.html">
+					<span id="nav_projects" class="translatable">Projects</span></a></li>
+				<li class="active"><a class="nav_link" href="resume.html">
+					<span id="nav_resume" class="translatable">Resume</span></a></li>
+			</ul>
+			<div id="language">
+				<span id="lang_selector" class="translatable">Language: </span>
+				<select id="select_language" onchange="GetTranslation(DisplayTranslation)">
 
-        		<option value="0">English</option>
 
-        	</select>
-
+	        	</select>
+			</div>
 		</div>
 	</div>
 
-	<h1>RESUME</h1>
+	<h1 id="resume_title" class="translatable">RESUME</h1>
 	
 	<div id="resume_content">
 
@@ -33,7 +36,7 @@
 
 	<div id="footer">
         <p> 
-        	Translation Powered By: <a href="http://translate.yandex.com" target=_blank>Yandex.Translate</a>
+        	<span id="footer_note" class="translatable"> Translation Powered By: </span><a href="http://translate.yandex.com" target=_blank>Yandex.Translate</a>
         </p>
     </div>  
 

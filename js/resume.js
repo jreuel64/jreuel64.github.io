@@ -25,28 +25,6 @@ function GetResume(callback)
 	resume.send();
 }
 
-/*
-function GetNews(callback)
-{
-	console.log("Getting News");
-
-	var news = new XMLHttpRequest();
-
-	news.onreadystatechange = function(){
-		if(news.readyState == 4 && news.status == 200)
-		{
-			console.log("Recieved News");
-			callback(news);
-		}
-	};
-
-	var url = "https://jreuel64.github.io/js/recent_news.json";
-
-	news.open("GET", url, true);
-	news.send();
-}
-*/
-
 function DisplayResume(resume)
 {
 	console.log(resume);
@@ -59,10 +37,12 @@ function DisplayResume(resume)
 	for(var i = 0; i < jsonResume.length; ++i)
 	{
 		var resumeField = document.getElementById("resume_content");
-		//console.log(resumeField);
+
 	//create section
 		//create section title
 		var header = document.createElement("h2");
+		header.id = "header" + i;
+		header.className = "translatable";
 		header.textContent = jsonResume[i].section;
 
 		resumeField.appendChild(header);
@@ -82,6 +62,8 @@ function DisplayResume(resume)
 
 			//add item
 			var itemP = document.createElement("p");
+			itemP.id = "itemP" + i + "." + j;
+			itemP.className = "translatable";
 			itemP.innerHTML = item + "</br>";
 
 			var descriptionP = document.createElement("p");
@@ -89,11 +71,23 @@ function DisplayResume(resume)
 
 			//add description 
 			if(description != ""){
-				descriptionP.innerHTML += description + "</br>";
+				var span1 = document.createElement("span");
+				span1.id = "span1" + i + "." + j;
+				span1.className = "translatable";
+				span1.innerHTML = description;
+
+				descriptionP.appendChild(span1);
+				descriptionP.innerHTML += "</br>"
 			}
 			//add date
 			if(date != ""){
-				descriptionP.innerHTML += "Date:  " + date + "</br>";
+				var span2 = document.createElement("span");
+				span2.id = "span2" + i + "." + j;
+				span2.className = "translatable";
+				span2.innerHTML = "Date:  " + date;
+
+				descriptionP.appendChild(span2);
+				descriptionP.innerHTML += "</br>";
 			}
 			//add link
 			if(linkSrc != ""){
@@ -110,42 +104,8 @@ function DisplayResume(resume)
 		}
 
 		resumeField.appendChild(div);
-		
 	}
 }
-/*
-function DisplayNews(news)
-{
-	var newsField = document.getElementById("news");
-	var jsonNews = JSON.parse(news.responseText);
-
-	//Create Table
-	var table = document.createElement("table");
-	for(var i = 0; i < jsonNews["news"].length; ++i)
-	{
-		//create table row
-		var row = document.createElement("tr");
-
-		//create table cells
-		var data1 = document.createElement("td");
-		var data2 = document.createElement("td");
-
-		//set content of table cells
-		data1.textContent = jsonNews["news"][i].date;
-		data2.textContent = jsonNews["news"][i].event;
-
-		//push cells to current row
-		row.appendChild(data1);
-		row.appendChild(data2);
-
-		//push row onto table
-		table.appendChild(row);
-	}
-
-	//push table to news field
-	newsField.appendChild(table);
-}
-*/
 
 function GetLanguages(callback)
 {
@@ -175,9 +135,15 @@ function PopulateLanguageSelector(languages, callback) //add callback to start e
 	var jsonLangs = JSON.parse(languages.responseText);
 	var count = 1;
 
-	// console.log(jsonLangs);
-	// console.log(Object.keys(jsonLangs["langs"]).length);	
+	//add English at the top
+	var enSelect = document.createElement("option");
+	enSelect.value = 0;
+	enSelect.langKey="en";
+	enSelect.textContent = "English";
 
+	langSelector.appendChild(enSelect);
+
+	//populate rest of languages
 	Object.keys(jsonLangs["langs"]).forEach(function(key) {
 
   		var select = document.createElement("option");
@@ -189,7 +155,6 @@ function PopulateLanguageSelector(languages, callback) //add callback to start e
   		langSelector.appendChild(select);
   		++count;
 	})
-
 }
 
 function GetTranslation(callback)
@@ -200,38 +165,33 @@ function GetTranslation(callback)
 	//console.log(selector[selector.value].textContent);
 
 	var langToSet = selector[selector.value].langKey;
+	console.log("Translating " + currLang + " - " + langToSet);	
 
-	console.log("Translating . . . ");
 
-	//Get Texts to translate
-	/*
-	var title = document.getElementsByTagName("Title");
-	console.log(title[0].innerHTML);
-	var titleStr = title[0].innerHTML;
+	var translatable = document.getElementsByClassName("translatable");
 
-	var headerItems = document.getElementById("navigation");
-	console.log(headerItems);
+	//console.log(translatable);
 
-*/
-	var content = document.getElementsByTagName("*");
-	var id = "*";
+	for(var i = 0; i < translatable.length; ++i)
+	{
+		var toTranslate = translatable[i].textContent;
+		var id = translatable[i].id;
 
-	//console.log(bodyContent.textContent);
-	var text = content[1].innerHTML;
-	text = "hello";
+		var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
+	+ "key=trnsl.1.1.20190304T233940Z.71bf15040bf5e0cd.b8ae71a3cc84ef031bb4ff5ee152f77a7ef8f212" 
+	+ "&text=" + toTranslate + "&lang=" + currLang + "-" + langToSet + "&format=plain";
 
+		RequestTranslation(id, langToSet, url, DisplayTranslation);
+	}
+}
+
+function RequestTranslation(id,langToSet, url, callback)
+{
 	var translation = new XMLHttpRequest();
-
-	console.log(text);
-	/*for content.length 
-		make request to translate and store its id
-		callback display with id and translation
-*/
 
 	translation.onreadystatechange = function(){
 		if(translation.readyState == 4 && translation.status == 200)
 		{
-			console.log("got translation");
 			callback(id, translation)
 			currLang = langToSet;
 		}
@@ -242,21 +202,16 @@ function GetTranslation(callback)
 		}
 	}
 
-	var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
-	+ "key=trnsl.1.1.20190304T233940Z.71bf15040bf5e0cd.b8ae71a3cc84ef031bb4ff5ee152f77a7ef8f212" 
-	+ "&text=" + text + "&lang=" + currLang + "-" + langToSet + "&format=plain";
-
 	translation.open("GET", url, true);
 	translation.send();
-
 }
 
 function DisplayTranslation(id, translation)
 {
-	console.log(translation);
-
 	var json = JSON.parse(translation.responseText);
 
-	console.log(json);
+
+	var field = document.getElementById(id);
+	field.textContent = json.text;
 
 }
