@@ -18,3 +18,6 @@ Q's:
 	 bad request -> resume page on translate how to handle?
 
 	 clean code -> comments and console.logs
+
+
+	 lighten background color?
