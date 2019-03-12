@@ -123,6 +123,15 @@ button{
 #content{
     margin-top: 6rem;
 }
+#personal_photo{
+    margin-top: 15rem;
+    text-align: center;
+}
+#personal_photo img{
+    width: 30rem;
+    height: auto;
+    transform: rotate(90deg);
+}
 
 #about{
     text-align: left;
