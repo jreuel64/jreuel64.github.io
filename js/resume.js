@@ -173,13 +173,13 @@ function GetTranslation(callback)
 	//console.log(translatable);
 
 	for(var i = 0; i < translatable.length; ++i)
-	{
+	{	
 		var toTranslate = translatable[i].textContent;
 		var id = translatable[i].id;
 
 		var url = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
 	+ "key=trnsl.1.1.20190304T233940Z.71bf15040bf5e0cd.b8ae71a3cc84ef031bb4ff5ee152f77a7ef8f212" 
-	+ "&text=" + toTranslate + "&lang=" + currLang + "-" + langToSet + "&format=plain";
+	+ "&text=" + toTranslate + "&lang=" + currLang + "-" + langToSet + "&format=html";
 
 		RequestTranslation(id, langToSet, url, DisplayTranslation);
 	}
@@ -200,10 +200,10 @@ function RequestTranslation(id,langToSet, url, callback)
 			callback(id, translation)
 			currLang = langToSet;
 		}
-		else if(translation.readystate == 4)
+		else if(translation.readystate == 4 )
 		{
 			console.log("ERROR" + translation.status);
-			alert("ERROR: " + translation.status);
+			//alert("ERROR: " + translation.status);
 		}
 	}
 
