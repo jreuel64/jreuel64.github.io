@@ -93,8 +93,6 @@ function GetLanguages(callback)
 
 function PopulateLanguageSelector(languages, callback) //add callback to start event listener once populate selector
 {
-	// console.log(languages);
-
 	var langSelector = document.getElementById("select_language");
 	var jsonLangs = JSON.parse(languages.responseText);
 	var count = 1;
@@ -125,16 +123,11 @@ function GetTranslation(callback)
 {	
 	var selector = document.getElementById("select_language");
 
-	//get language from selector
-	//console.log(selector[selector.value].textContent);
-
 	var langToSet = selector[selector.value].langKey;
 	console.log("Translating " + currLang + " - " + langToSet);	
 
 
 	var translatable = document.getElementsByClassName("translatable");
-
-	//console.log(translatable);
 
 	for(var i = 0; i < translatable.length; ++i)
 	{
@@ -156,7 +149,6 @@ function RequestTranslation(id,langToSet, url, callback)
 	translation.onreadystatechange = function(){
 		if(translation.readyState == 4 && translation.status == 200)
 		{
-			//console.log("got translation");
 			callback(id, translation)
 			currLang = langToSet;
 		}

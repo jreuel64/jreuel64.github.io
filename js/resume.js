@@ -27,11 +27,7 @@ function GetResume(callback)
 
 function DisplayResume(resume)
 {
-	//console.log(resume);
-
 	var jsonResume = JSON.parse(resume.responseText);
-
-	//console.log(jsonResume[0].section);
 
 	//populate resume
 	for(var i = 0; i < jsonResume.length; ++i)
@@ -54,7 +50,6 @@ function DisplayResume(resume)
 		//add items to paragraph
 		for(var j = 0; j < jsonResume[i].content.length; ++j)
 		{
-			//console.log(jsonResume[i].content[j].item + j)
 			var item = jsonResume[i].content[j].item;
 			var date = jsonResume[i].content[j].date;
 			var description = jsonResume[i].content[j].description;
@@ -129,8 +124,6 @@ function GetLanguages(callback)
 
 function PopulateLanguageSelector(languages, callback) //add callback to start event listener once populate selector
 {
-	// console.log(languages);
-
 	var langSelector = document.getElementById("select_language");
 	var jsonLangs = JSON.parse(languages.responseText);
 	var count = 1;
@@ -161,16 +154,11 @@ function GetTranslation(callback)
 {	
 	var selector = document.getElementById("select_language");
 
-	//get language from selector
-	//console.log(selector[selector.value].textContent);
-
 	var langToSet = selector[selector.value].langKey;
 	console.log("Translating " + currLang + " - " + langToSet);	
 
 
 	var translatable = document.getElementsByClassName("translatable");
-
-	//console.log(translatable);
 
 	for(var i = 0; i < translatable.length; ++i)
 	{	
@@ -203,7 +191,7 @@ function RequestTranslation(id,langToSet, url, callback)
 		else if(translation.readystate == 4 )
 		{
 			console.log("ERROR" + translation.status);
-			//alert("ERROR: " + translation.status);
+			alert("ERROR: " + translation.status);
 		}
 	}
 
